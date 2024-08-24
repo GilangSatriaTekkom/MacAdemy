@@ -1,0 +1,29 @@
+{
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.41",
+    "tailwindcss": "^3.4.10"
+  },
+  "dependencies": {
+    "flowbite": "^2.5.1"
+  },
+  "name": "macademy",
+  "version": "1.0.0",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tailwindcss -i ./src/assets/css/main.css -o ./src/assets/css/min.main.css --minify",
+    "watch": "tailwindcss -i ./src/assets/css/main.css -o ./src/assets/css/min.main.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GilangSatriaTekkom/MacAdemy.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GilangSatriaTekkom/MacAdemy/issues"
+  },
+  "homepage": "https://github.com/GilangSatriaTekkom/MacAdemy#readme",
+  "description": ""
+}
