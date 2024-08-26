@@ -13,11 +13,9 @@ h1 {
 }
 
 li {
-    @apply list-disc text-base font-inter;
+    @apply text-base font-inter;
 
 }
-
-
 
 h2 {
     @apply font-inter text-[64px]
@@ -56,7 +54,7 @@ header {
     
 
     li {
-        @apply list-disc text-[10px] font-inter;
+        @apply text-[10px] font-inter;
     }
 
     h1 {
@@ -99,7 +97,7 @@ header {
 @media (screen(mobile)) {
 
     p {
-        @apply text-[20px]
+        @apply text-[16px]
 
     }
 
@@ -112,7 +110,7 @@ header {
     }
 
     h3 {
-        @apply text-[24px]
+        @apply text-[32px]
     }
     
 }
@@ -211,137 +209,93 @@ header {
         url('./assets/fonts/Helvetica-BoldOblique.ttf');
     }
 }
-
-.star-effect {
-width: 100%;
-height: 100%;
-  transform: rotateZ(90deg);
-}
-
-.line{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    height: 4px;
-    border-radius: 999px;
-    background: linear-gradient(-45deg, #5F91FF, rgba(0, 0, 255, 0));
-    filter: drop-shadow(0 0 6px #699BFF);
-    animation: tail 10s ease-in-out infinite,
-    falling 10s ease-in-out infinite;
-  }
-
   
-  
-  @keyframes tail{
-    0%{
-      width: 0px;
-    }
-    30%{
-      width: 100px;
-      
-    }
-    100%{
-        width: 0px;
-    }
-  }
+ 
 
-@keyframes falling{
-0%{
-    transform: translateX(0);
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background-image: linear-gradient(to right, #ECEDEE 0.8px, transparent 0.8px),
+                      linear-gradient(to bottom, #ECEDEE 0.8px, transparent 0.8px);
+    background-size: 8.2% 22%; /* Adjust to fit grid lines */
+    background-position: 0 0;
 }
 
-100% {
-    transform: translateX(300px);
-}
-}
-
-
-.line::before, .line::after{
-  content: '';
-  position: absolute;
-  top: calc(50% - 2px);
-  right: 0;
-  height: 4px;
-  width: 4px;
-  background: #5F91FF;
-  border-radius: 50%;
-  box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
-  animation: shining 10s ease-in-out infinite;
-}
-
-.line-up{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    height: 4px;
-    border-radius: 999px;
-    background: linear-gradient(135deg, #5F91FF, rgba(0, 0, 255, 0));
-    filter: drop-shadow(0 0 6px #699BFF);
-    animation: tail-up 10s ease-in-out infinite,
-    falling-up 10s ease-in-out infinite;
-  }
-
-@keyframes tail-up{
-    0%{
-      width: 0px;
-    }
-    30%{
-      width: 100px;
-      
-    }
-    100%{
-        width: 0px;
-    }
-  }
-
-@keyframes falling-up{
-    0%{
-        transform: translateX(300px);
-    }
-    
-    100% {
-        transform: translateX(0px);
-    }
-    }
-
-
-.line-up::before, .line-up::after{
+.grid-container::before {
     content: '';
     position: absolute;
-    top: calc(50% - 2px);
-    height: 4px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    pointer-events: none; /* To ensure the gradient layer does not block interactions */
+    z-index: 1;
+}
+
+.meteor {
+    top: 50%;
+    height: 100px; /* Menyesuaikan tinggi dengan panjang tail */
+    width: 2px; 
+    border-radius: 999px;
+    background: linear-gradient(45deg, #C267FA, rgba(255, 255, 255, 0)); /* Gradien vertikal */
+    position: absolute;
+    z-index: 1; /* Ensure meteors are above grid lines */
+    filter: drop-shadow(0 0 6px #C267FA);
+    animation: tail 10s ease-in-out infinite, falling 10s ease-in-out infinite;
+}
+
+.meteor::before, .meteor::after{
+    content: '';
+    position: absolute;
+    bottom: calc(1%);
     width: 4px;
-    background: #5F91FF;
+    height: 4px;
+    background: #C267FA;
     border-radius: 50%;
     box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
     animation: shining 10s ease-in-out infinite;
   }
 
-  .line-up:nth-child(5) {
-    top: calc(50% - 335px);
-    left: calc(50% - 250px);
-    animation-delay: 1s;
+.meteor-up {
+    top: 50%;
+    height: 100px; /* Menyesuaikan tinggi dengan panjang tail */
+    width: 2px; 
+    border-radius: 999px;
+    background: linear-gradient(320deg, rgba(255, 255, 255, 0), #C267FA); /* Gradien vertikal */
+    position: absolute;
+    z-index: 1; /* Ensure meteors are above grid lines */
+    filter: drop-shadow(0 0 6px #C267FA);
+    animation: tail-up 20s ease-in-out infinite, falling-up 20s ease-in-out infinite;
 }
 
-.line-up:nth-child(5)::before, .line-up:nth-child(5)::after{
-animation-delay: 1s;
-}
 
-.line-up:nth-child(6) {
-    top: calc(50% + 430px);
-    left: calc(50% - 350px);
-    animation-delay: 1s;
-}
-        
-.line-up:nth-child(6)::before, .line-up:nth-child(6)::after{
-animation-delay: 1s;
-}
-  
+
+  .meteor-up::before, .meteor-up::after{
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #C267FA;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
+    animation: shining 20s ease-in-out infinite;
+  }
+
   @keyframes shining{
     0%{
       transform: scale(0);
     }
-    50%{
+
+    10% {
+        transform: scale(2);
+    }
+    80%{
       transform: scale(2);
     }
     100%{
@@ -349,52 +303,79 @@ animation-delay: 1s;
     }
   }
 
-  .line::after{
-    transform: translateY(50%) rotateZ(-45deg);
-  }
-
-  
-
-.line:nth-child(1){
-top: calc(50% - 620px);
-left: calc(50% - 300px);
-animation-delay: 1s;
-}
-
-.line:nth-child(1)::before, .line:nth-child(1)::after{
-animation-delay: 1s;
-}
-
-.line:nth-child(2){
-    top: calc(50% + 717px);
-    left: calc(50% - 250px);
-    animation-delay: 1s;
+@keyframes tail{
+    0%{
+      height: 0px;
+    }
+    30%{
+      height: 100px;
+      
+    }
+    90%{
+        height: 0px;
+    }
+    100%{
+        height: 0px;
     }
     
-.line:nth-child(2)::before, .line:nth-child(2)::after{
-animation-delay: 1s;
+  }
+
+@keyframes falling{
+0%{
+    transform: translateY(0);
 }
 
-.line:nth-child(3){
-    top: calc(50% + 525px);
-    left: calc(50% - 200px);
-    animation-delay: 1s;
+100% {
+    transform: translateY(300px);
+}
+}
+
+@keyframes tail-up{
+    0%{
+      height: 0px;
     }
-        
-.line:nth-child(3)::before, .line:nth-child(3)::after{
-animation-delay: 1s;
-}
-
-.line:nth-child(4){
-    top: calc(50% - 430px);
-    left: calc(50% - 250px);
-    animation-delay: 1s;
+    30%{
+      height: 100px;
+      
     }
-        
-.line:nth-child(4)::before, .line:nth-child(4)::after{
-animation-delay: 1s;
+    90%{
+        height: 0px;
+    }
+    100%{
+        height: 0px;
+    }
+  }
+
+@keyframes falling-up{
+    0%{
+        transform: translateY(0px);
+    }
+    
+    100% {
+        transform: translateY(-300px);
+    }
+    }
+
+.meteor:nth-child(1) {
+    left: 8.1%; /* Adjust position */
+    animation-delay: 0s;
 }
 
+.meteor-up:nth-child(2) {
+    left: 16.3%; /* Adjust position */
+    animation-delay: 0s;
+}
+
+.meteor:nth-child(3) {
+    right: 9.6%; /* Adjust position */
+    top : 10%;
+    animation-delay: 0s;
+}
+
+.meteor-up:nth-child(4) {
+    right: 17.8%; /* Adjust position */
+    animation-delay: 0s;
+}
 
 
         
@@ -403,7 +384,7 @@ animation-delay: 1s;
 }
 
 .nav-gap {
-    @apply flex flex-row space-x-4
+    @apply flex flex-row
 }
 
 .section-title-testimonial {
@@ -425,6 +406,38 @@ animation-delay: 1s;
 .slider-content {
     @apply h-12 w-auto
 }
+
+@keyframes scrollDown {
+    0% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes scrollUp {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+}
+
+.dropdown-content {
+    animation: scrollDown 0.3s ease-out;
+}
+
+.dropdown-content.fade-out {
+    animation: scrollUp 0.3s ease-out forwards; /* Menambahkan animasi fade out */
+}
+
+
     
 @media (screen(tablet)) {
 
@@ -479,7 +492,7 @@ animation-delay: 1s;
     }
 
     .nav-display {
-        @apply flex flex-row justify-between h-17 items-center
+        @apply flex flex-row justify-between h-17 items-center 
     }
 
     .main-logo {
@@ -519,199 +532,173 @@ animation-delay: 1s;
     }
 
     .search-fill {
-        @apply text-paragraph flex flex-row justify-start  border-b-2 
+        @apply text-paragraph flex flex-row items-start border-b-2 
     }
 
 
-    .garis {
-        border: 1px solid #dbdbdb;
-        border-style: dashed;
-        border-width: 1px 0 0 0;
-        box-shadow: 0 1px 0 #dbdbdb, 1px 0 0 #dbdbdb;
-      }
-
-    .star-effect {
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        grid-template-rows: repeat(10, 1fr);
+        width: 100vw;
+        height: 100vh;
+        position: relative;
+        background-image: linear-gradient(to right, #ECEDEE 0.8px, transparent 0.8px),
+                          linear-gradient(to bottom, #ECEDEE 0.8px, transparent 0.8px);
+        background-size: 8.2% 22%; /* Adjust to fit grid lines */
+        background-position: 0 0;
+    }
+    
+    .grid-container::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
-          transform: rotateZ(90deg);
+        background: linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+        pointer-events: none; /* To ensure the gradient layer does not block interactions */
+        z-index: 1;
+    }
+    
+    .meteor {
+        top: 50%;
+        height: 100px; /* Menyesuaikan tinggi dengan panjang tail */
+        width: 2px; 
+        border-radius: 999px;
+        background: linear-gradient(45deg, #C267FA, rgba(255, 255, 255, 0)); /* Gradien vertikal */
+        position: absolute;
+        z-index: 1; /* Ensure meteors are above grid lines */
+        filter: drop-shadow(0 0 6px #C267FA);
+        animation: tail 10s ease-in-out infinite, falling 10s ease-in-out infinite;
+    }
+    
+    .meteor::before, .meteor::after{
+        content: '';
+        position: absolute;
+        bottom: calc(1%);
+        width: 3px;
+        height: 3px;
+        background: #C267FA;
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
+        animation: shining 10s ease-in-out infinite;
+      }
+    
+    .meteor-up {
+        top: 50%;
+        height: 100px; /* Menyesuaikan tinggi dengan panjang tail */
+        width: 2px; 
+        border-radius: 999px;
+        background: linear-gradient(320deg, rgba(255, 255, 255, 0), #C267FA); /* Gradien vertikal */
+        position: absolute;
+        z-index: 1; /* Ensure meteors are above grid lines */
+        filter: drop-shadow(0 0 6px #C267FA);
+        animation: tail-up 20s ease-in-out infinite, falling-up 20s ease-in-out infinite;
+    }
+    
+    
+    
+      .meteor-up::before, .meteor-up::after{
+        content: '';
+        position: absolute;
+        width: 3px;
+        height: 3px;
+        background: #C267FA;
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
+        animation: shining 20s ease-in-out infinite;
+      }
+    
+      @keyframes shining{
+        0%{
+          transform: scale(0);
+        }
+    
+        10% {
+            transform: scale(2);
+        }
+        80%{
+          transform: scale(2);
+        }
+        100%{
+          transform: scale(0);
+        }
+      }
+    
+    @keyframes tail{
+        0%{
+          height: 0px;
+        }
+        30%{
+          height: 100px;
+          
+        }
+        90%{
+            height: 0px;
+        }
+        100%{
+            height: 0px;
         }
         
-        .line{
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            height: 4px;
-            border-radius: 999px;
-            background: linear-gradient(-45deg, #5F91FF, rgba(0, 0, 255, 0));
-            filter: drop-shadow(0 0 6px #699BFF);
-            animation: tail 10s ease-in-out infinite,
-            falling 10s ease-in-out infinite;
-          }
-        
-          
-          
-          @keyframes tail{
-            0%{
-              width: 0px;
-            }
-            30%{
-              width: 100px;
-              
-            }
-            100%{
-                width: 0px;
-            }
-          }
-        
-        @keyframes falling{
+      }
+    
+    @keyframes falling{
+    0%{
+        transform: translateY(0);
+    }
+    
+    100% {
+        transform: translateY(300px);
+    }
+    }
+    
+    @keyframes tail-up{
         0%{
-            transform: translateX(0);
+          height: 0px;
+        }
+        30%{
+          height: 100px;
+          
+        }
+        90%{
+            height: 0px;
+        }
+        100%{
+            height: 0px;
+        }
+      }
+    
+    @keyframes falling-up{
+        0%{
+            transform: translateY(0px);
         }
         
         100% {
-            transform: translateX(300px);
+            transform: translateY(-300px);
         }
         }
-        
-        
-        .line::before, .line::after{
-          content: '';
-          position: absolute;
-          top: calc(50% - 2px);
-          right: 0;
-          height: 4px;
-          width: 4px;
-          background: #5F91FF;
-          border-radius: 50%;
-          box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
-          animation: shining 10s ease-in-out infinite;
-        }
-        
-        .line-up{
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            height: 4px;
-            border-radius: 999px;
-            background: linear-gradient(135deg, #5F91FF, rgba(0, 0, 255, 0));
-            filter: drop-shadow(0 0 6px #699BFF);
-            animation: tail-up 10s ease-in-out infinite,
-            falling-up 10s ease-in-out infinite;
-          }
-        
-        @keyframes tail-up{
-            0%{
-              width: 0px;
-            }
-            30%{
-              width: 100px;
-              
-            }
-            100%{
-                width: 0px;
-            }
-          }
-        
-        @keyframes falling-up{
-            0%{
-                transform: translateX(300px);
-            }
-            
-            100% {
-                transform: translateX(0px);
-            }
-            }
-        
-        
-        .line-up::before, .line-up::after{
-            content: '';
-            position: absolute;
-            top: calc(50% - 2px);
-            height: 4px;
-            width: 4px;
-            background: #5F91FF;
-            border-radius: 50%;
-            box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
-            animation: shining 10s ease-in-out infinite;
-          }
-        
-          .line-up:nth-child(5) {
-            top: calc(50% - 335px);
-            left: calc(50% - 250px);
-            animation-delay: 1s;
-        }
-               
-        .line-up:nth-child(5)::before, .line-up:nth-child(5)::after{
-        animation-delay: 1s;
-        }
-        
-        .line-up:nth-child(6) {
-            top: calc(50% + 430px);
-            left: calc(50% - 350px);
-            animation-delay: 1s;
-        }
-                
-        .line-up:nth-child(6)::before, .line-up:nth-child(6)::after{
-        animation-delay: 1s;
-        }
-          
-          @keyframes shining{
-            0%{
-              transform: scale(0);
-            }
-            50%{
-              transform: scale(2);
-            }
-            100%{
-              transform: scale(0);
-            }
-          }
-        
-          .line::after{
-            transform: translateY(50%) rotateZ(-45deg);
-          }
-        
-          
-        
-        .line:nth-child(1){
-        top: calc(50% - 620px);
-        left: calc(50% - 300px);
-        animation-delay: 1s;
-        }
-        
-        .line:nth-child(1)::before, .line:nth-child(1)::after{
-        animation-delay: 1s;
-        }
-        
-        .line:nth-child(2){
-            top: calc(50% + 717px);
-            left: calc(50% - 250px);
-            animation-delay: 1s;
-            }
-            
-        .line:nth-child(2)::before, .line:nth-child(2)::after{
-        animation-delay: 1s;
-        }
-        
-        .line:nth-child(3){
-            top: calc(50% + 525px);
-            left: calc(50% - 200px);
-            animation-delay: 1s;
-            }
-                
-        .line:nth-child(3)::before, .line:nth-child(3)::after{
-        animation-delay: 1s;
-        }
-        
-        .line:nth-child(4){
-            top: calc(50% - 430px);
-            left: calc(50% - 250px);
-            animation-delay: 1s;
-            }
-                
-        .line:nth-child(4)::before, .line:nth-child(4)::after{
-        animation-delay: 1s;
-        }
+    
+    .meteor:nth-child(1) {
+        left: 8.1%; /* Adjust position */
+        animation-delay: 0s;
+    }
+    
+    .meteor-up:nth-child(2) {
+        left: 16.3%; /* Adjust position */
+        animation-delay: 0s;
+    }
+    
+    .meteor:nth-child(3) {
+        right: 9.6%; /* Adjust position */
+        top : 10%;
+        animation-delay: 0s;
+    }
+    
+    .meteor-up:nth-child(4) {
+        right: 17.8%; /* Adjust position */
+        animation-delay: 0s;
+    }
 }
 
 @media (screen(mobile)) {
@@ -767,6 +754,11 @@ animation-delay: 1s;
     .star {
         @apply w-[24px] h-[24px]
     }
+
+    .btn-circle {
+        @apply py-4 px-4 text-[16px] border rounded-full flex flex-row items-center justify-center border-blackTheme
+    }
+    
 }
 
 }

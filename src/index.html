@@ -9,112 +9,109 @@
     <link rel="stylesheet" href="./assets/css/min.main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:wght@700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:wght@700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-    <canvas id="gridCanvas" class="absolute z-[-10px]"></canvas>
-    <div class="mobile:bg-headerBackgroundMobile desktop:bg-contain tablet:bg-cover mobile:bg-cover bg-top" style="background-image: url(./assets/img/background-image.png);">
-        <div class="container">
-            
+    <div class="mobile:hidden absolute grid-container -z-1">
+        <div>
+            <div class="meteor"></div>
+            <div class="meteor-up"></div>
+            <div class="meteor"></div>
+            <div class="meteor-up"></div>
+        </div>
 
-            <div class="absolute desktop:top-[350px] desktop:left-[50px] tablet:top-[350px] tablet:left-[50px] star-effect">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line-up"></div>
-                <div class="line-up"></div>
+    </div>
+
+    <div class="absolute -z-1 w-screen h-screen bg-cover desktop:hidden tablet:hidden" style="background-image: url('./assets/img/background-image-mobile.png');"></div>
+
+    <div class="z-10">
+        <img class="mobile:hidden absolute top-[90px] mx-auto" src="./assets/img/light_neon.png" alt="">
+        <header id="header" class="fixed w-full mobile:bg-white mobile:z-50">
+            <div
+                class="hidden absolute desktop:flex tablet:flex w-full justify-center h-17">
+                <ul class="ul-header">
+                    <li class="li list-disc">About us</li>
+                    <li class="li list-disc">Student Testimoni</li>
+                    <li class="li list-disc">Course</li>
+                    <li class="li list-disc">Contact</li>
+                </ul>
             </div>
-            
-            <header id="header" class="mobile:w-auto">
-                <div class="desktop:container mobile:container hidden absolute desktop:flex tablet:flex w-full justify-center h-17">
-                    <ul class="ul-header">
-                      <li class="li">About us</li>
-                      <li class="li">Student Testimoni</li>
-                      <li class="li">Course</li>
-                      <li class="li">Contact</li>
-                    </ul>
-                  </div>
-                <div id="nav-mobile" class="nav-display ">
-                    <div class="main-logo">
-                        <img src="./assets/svg/macademy_logo.svg" alt="">           
-                    </div>                        
-                    <div class="hidden desktop:nav-gap tablet:nav-gap">
-                        <button class="btn border-0 tablet:p-2">Be a mentor <img class="icon" src="./assets/svg/north-east-arrow.svg" alt=""></button>    
-                        <button class="btn">
-                            Be a Student
-                            <img class="icon" src="./assets/svg/north-east-arrow.svg" alt="">
-                        </button>
-                    </div>
-
-                    <div class="tablet:hidden desktop:hidden">
-                        <button type="button" id="hamburger"
-                          class="inline-flex items-center justify-center p-2 w-10 h-10 text-sm text-bgBox rounded-lg focus:outline-none focus:ring-2">
-                          <span class="sr-only">Open main menu</span>
-                          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M1 1h15M1 7h15M1 13h15" />
-                          </svg>
-                        </button>
-                      </div>
+            <div id="nav-mobile" class="nav-display container">
+                <div class="main-logo">
+                    <img src="./assets/svg/macademy_logo.svg" alt="">
+                </div>
+                <div class="hidden desktop:nav-gap tablet:nav-gap">
+                    <button class="btn border-0 tablet:p-2">Be a mentor <img class="icon"
+                            src="./assets/svg/north-east-arrow.svg" alt=""></button>
+                    <button class="btn bg-white">
+                        Be a Student
+                        <img class="icon" src="./assets/svg/north-east-arrow.svg" alt="">
+                    </button>
                 </div>
 
-                <div id="navbar-hamburger" class="w-full fixed top-[70px] h-[180px] right-[-150%] transition-all duration-500 ease-in-out z-40">
-                    <ul class="flex flex-col font-medium mt-0 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
-                      <li>
-                        <a href="#" id="home"
-                          class="block py-2 px-3 text-gray-900 bg-white rounded hover:bg-gray-100 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Home</a>
-                      </li>
-                      <li>
-                        <a href="#" id="services"
-                          class="block py-2 px-3 text-gray-900 bg-white rounded hover:bg-gray-100 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Services</a>
-                      </li>
-                      <li>
-                        <a href="#" id="pricing"
-                          class="block py-2 px-3 text-gray-900 bg-white rounded hover:bg-gray-100 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Pricing</a>
-                      </li>
-                      <li>
-                        <a href="#" id="contact"
-                          class="block py-2 px-3 text-gray-900 bg-white rounded hover:bg-gray-100 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Contact</a>
-                      </li>
-                    </ul>
-                  </div>
-
-                
-            </header>
+                <div class="tablet:hidden desktop:hidden">
+                    <button type="button" id="hamburger"
+                        class="inline-flex items-center justify-center p-2 w-10 h-10 text-sm text-bgBox rounded-lg focus:outline-none focus:ring-2">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 17 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M1 1h15M1 7h15M1 13h15" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
 
             
-        
-            <div class="container font-inter">
-                
-        
+        </header>
+        <div id="navbar-hamburger"
+                class="w-full fixed -top-[180px] h-[180px] transition-all duration-500 ease-in-out z-40">
+                <ul class="flex flex-col font-medium mt-0 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
+                    <li>
+                        <a href="#" id="home"
+                            class="block py-2 px-3 text-gray-900 bg-white rounded hover:bg-gray-100 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Home</a>
+                    </li>
+                    <li>
+                        <a href="#" id="services"
+                            class="block py-2 px-3 text-gray-900 bg-white rounded hover:bg-gray-100 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Services</a>
+                    </li>
+                    <li>
+                        <a href="#" id="pricing"
+                            class="block py-2 px-3 text-gray-900 bg-white rounded hover:bg-gray-100 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Pricing</a>
+                    </li>
+                    <li>
+                        <a href="#" id="contact"
+                            class="block py-2 px-3 text-gray-900 bg-white rounded hover:bg-gray-100 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Contact</a>
+                    </li>
+                </ul>
+            </div>
+
+        <div class="container flex justify-center">
+            <div class="container font-inter pt-17">
                 <div class="flex flex-col items-center desktop:pt-24 tablet:pt-12 mobile:pt-24 pb-10">
                     <h4 class="bg-blackTheme text-white btn">Smart With Our Course</h4>
                     <h1>Get smarter with expert ment<span class="o-word "></span>rs</h1>
                     <h4 class="text-center text-paragraph leading-relaxed py-8">
                         Explore our wide range of premium products, crafted
                         to meet the highest standards.
-                        From stylish shoes to trendy accessories, find everything you need to elevate your style.</h4>
-        
+                        From stylish shoes to trendy accessories, find everything you need to elevate your style.
+                    </h4>
+
                     <button class="bg-baseColor border-0 text-blackThemeTheme btn">Looking for Course <span
                             class="icon inline-block items-center"><img src="./assets/svg/north-east-arrow.svg"
                                 alt=""></span></button>
-        
-        
-        
                 </div>
-        
-                
             </div>
         </div>
-        
-        
     </div>
 
     <section class="container">
-        <div class="flex desktop:flex-row tablet:flex-row mobile:flex-col justify-between desktop:space-x-6 tablet:space-x-6 mobile:space-y-6">
-            <div class="card desktop:w-112 tablet:w-64 card-leading">
+        <div
+            class="flex desktop:flex-row tablet:flex-row mobile:flex-col justify-between desktop:space-x-6 tablet:space-x-6 mobile:space-y-6">
+            <div class="card desktop:w-112 flex-none tablet:w-64 card-leading">
                 <div class="space-y-2 w-full">
                     <p class="text-sm text-bl">
                         Popular Course
@@ -153,7 +150,7 @@
                     <p>Much more student in our Platform from in This World</p>
                 </div>
 
-                <div1 class="flex flex-row mt-auto h-full desktop:space-x-6 tablet:space-x-2 items-center align-bottom">
+                <div1 class="flex flex-row mt-auto h-full desktop:space-x-6 tablet:space-x-2 mobile:space-x-6 items-center align-bottom">
                     <img class="img-group tablet:h-7" src="./assets/img/group-man.png" alt="">
 
                     <div>
@@ -186,11 +183,11 @@
                         <h4 class="font-bold">40+</h4>
                         <p>Trusted Partner</p>
                     </div>
-                </div>    
-            </div>    
+                </div>
+            </div>
         </div>
     </section>
-    
+
 
     <!-- ----------SLIDER------------- -->
     <div class="relative flex flex-col h-auto w-auto overflow-x-hidden items-center justify-center mx-auto">
@@ -217,7 +214,7 @@
                 <img src="./assets/svg/logo-gusto.svg" alt="">
             </div>
         </div>
-    
+
         <div class="slider-2">
             <div class="slider-content">
                 <img src="./assets/svg/logo-bankin.svg" alt="">
@@ -241,8 +238,8 @@
                 <img src="./assets/svg/logo-gusto.svg" alt="">
             </div>
         </div>
-     </div>
-   
+    </div>
+
     <!-- ----------SLIDER END------------- -->
 
 
@@ -260,23 +257,27 @@
         </div>
 
 
-        <div class="flex desktop:flex-row tablet:flex-row mobile:flex-col desktop:space-x-6 tablet:space-x-6 mobile:space-y-6">
+        <div
+            class="flex desktop:flex-row tablet:flex-row mobile:flex-col desktop:space-x-6 tablet:space-x-6 mobile:space-y-6">
             <div class="desktop:w-1/3 tablet:w-1/3 mobile:w-auto">
                 <div class="p-3 flex flex-row justify-between border-t-2">
                     <h3>UI/UX Designer</h3>
                     <div class="btn-circle">
-                        <img class="desktop:w-6 desktop:h-6 tablet:w-3 tablet:h-3 mobile:w-3 mobile:h-3" src="./assets/svg/north-east-arrow.svg" alt="">
+                        <img class="desktop:w-6 desktop:h-6 tablet:w-3 tablet:h-3 mobile:w-3 mobile:h-3"
+                            src="./assets/svg/north-east-arrow.svg" alt="">
                     </div>
 
                 </div>
                 <div class="card-portrait bg-book relative flex whitespace-nowrap overflow-x-auto">
-                    <div class="absolute flex justify-center desktop:bottom-14 tablet:bottom-6 mobile:bottom-14 text-white space-x-2">
-                      <button class="btn border-2 border-white">3D Animation</button>
-                      <button class="btn border-2 border-white">3d Ilustration</button>
-                      <button class="btn border-2 border-white">Front End Development</button>
+                    <div
+                        class="absolute flex justify-center desktop:bottom-14 tablet:bottom-6 mobile:bottom-14 text-white space-x-2">
+                        <button class="btn border-2 border-white">3D Animation</button>
+                        <button class="btn border-2 border-white">3d Ilustration</button>
+                        <button class="btn border-2 border-white">Front End Development</button>
                     </div>
-                  </div>
-                <p class="mt-4">Explore our wide range of premium products, crafted to meet the highest standards.</p>
+                </div>
+                <p class="mt-4">Explore our wide range of premium products, crafted to meet the highest standards.
+                </p>
 
             </div>
 
@@ -284,39 +285,45 @@
                 <div class="p-3 flex flex-row justify-between border-t-2">
                     <h3>3D Designer</h3>
                     <div class="btn-circle">
-                        <img class="desktop:w-6 desktop:h-6 tablet:w-3 tablet:h-3 mobile:w-3 mobile:h-3" src="./assets/svg/north-east-arrow.svg" alt="">
+                        <img class="desktop:w-6 desktop:h-6 tablet:w-3 tablet:h-3 mobile:w-3 mobile:h-3"
+                            src="./assets/svg/north-east-arrow.svg" alt="">
                     </div>
 
                 </div>
                 <div class="card-portrait bg-img1 relative flex whitespace-nowrap overflow-x-auto">
-                    <div class="absolute flex justify-center desktop:bottom-14 tablet:bottom-6 mobile:bottom-14 text-white space-x-2">
+                    <div
+                        class="absolute flex justify-center desktop:bottom-14 tablet:bottom-6 mobile:bottom-14 text-white space-x-2">
                         <button class="btn border-2 border-white">3D Animation</button>
                         <button class="btn border-2 border-white">3d Ilustration</button>
                         <button class="btn border-2 border-white">Front End Development</button>
                     </div>
 
                 </div>
-                <p class="mt-4">Explore our wide range of premium products, crafted to meet the highest standards.</p>
+                <p class="mt-4">Explore our wide range of premium products, crafted to meet the highest standards.
+                </p>
 
             </div>
 
             <div class="desktop:w-1/3 tablet:w-1/3 mobile:w-auto">
                 <div class="p-3 flex flex-row justify-between border-t-2">
-                    <h3>Marketing Specialist</h3>
+                    <h3 class="mobile:text-2xl">Marketing Specialist</h3>
                     <div class="btn-circle">
-                        <img class="desktop:w-6 desktop:h-6 tablet:w-3 tablet:h-3 mobile:w-3 mobile:h-3" src="./assets/svg/north-east-arrow.svg" alt="">
+                        <img class="desktop:w-6 desktop:h-6 tablet:w-3 tablet:h-3 mobile:w-3 mobile:h-3"
+                            src="./assets/svg/north-east-arrow.svg" alt="">
                     </div>
 
                 </div>
                 <div class="card-portrait bg-img2 relative flex whitespace-nowrap overflow-x-auto">
-                    <div class="absolute flex justify-center desktop:bottom-14 tablet:bottom-6 mobile:bottom-14 text-white space-x-2">
+                    <div
+                        class="absolute flex justify-center desktop:bottom-14 tablet:bottom-6 mobile:bottom-14 text-white space-x-2">
                         <button class="btn border-2 border-white">3D Animation</button>
                         <button class="btn border-2 border-white">3d Ilustration</button>
                         <button class="btn border-2 border-white">Front End Development</button>
                     </div>
 
                 </div>
-                <p class="mt-4">Explore our wide range of premium products, crafted to meet the highest standards.</p>
+                <p class="mt-4">Explore our wide range of premium products, crafted to meet the highest standards.
+                </p>
 
             </div>
 
@@ -330,7 +337,8 @@
     <Section class="container space-y-10 desktop:py-28 tablet:py-12 mobile:py-28">
         <div class="sub-title items-start">
             <div class="desktop:space-y-6 tablet:space-y-6 mobile:space-y-10 w-full">
-                <div class="flex desktop:flex-row tablet:flex-row mobile:flex-col desktop:items-end tablet:items-end mobile:items-start mobile:space-y-6 justify-between">
+                <div
+                    class="flex desktop:flex-row tablet:flex-row mobile:flex-col desktop:items-end tablet:items-end mobile:items-start mobile:space-y-6 justify-between">
                     <div class="desktop:w-[553px] tablet:w-[553px] mobile:w-auto space-y-6">
                         <button class="btn border-paragraph">Premium Course</button>
                         <h2>Our Course</h2>
@@ -348,16 +356,41 @@
 
                 <div class="flex desktop:flex-row tablet:flex-row mobile:flex-col justify-between mobile:space-y-4">
                     <div class="flex flex-row space-x-6">
-                        <div class="border-b-2 w-48 flex flex-row justify-between">
+                        <div class="dropdown border-b-2 w-48 flex flex-row justify-between cursor-pointer relative">
                             All Categories
-                            <img class="icon" src="./assets/svg/north-east-arrow.svg" alt="">
+                            <img class="icon transition-transform duration-300" src="./assets/svg/north-east-arrow.svg" alt="">
+                            <div class="dropdown-content absolute overflow-y-auto h-32 top-full left-0 w-full bg-white border border-gray-300 mt-6 rounded-lg shadow-md z-10 hidden">
+                                <ul class="text-gray-700">
+                                    <li class="p-2 hover:bg-gray-100">Category 1</li>
+                                    <li class="p-2 hover:bg-gray-100">Category 2</li>
+                                    <li class="p-2 hover:bg-gray-100">Category 3</li>
+                                </ul>
+                            </div>
                         </div>
-
-                        <div class="border-b-2 w-48 flex flex-row justify-between">
+                        
+                        <div class="dropdown border-b-2 w-48 flex flex-row justify-between cursor-pointer relative">
                             Popular Course
-                            <img class="icon" src="./assets/svg/north-east-arrow.svg" alt="">
+                            <img class="icon transition-transform duration-300" src="./assets/svg/north-east-arrow.svg" alt="">
+                            <div class="dropdown-content overflow-y-auto h-32 absolute top-full left-0 w-full bg-white border border-gray-300 mt-6 rounded-lg shadow-md z-10 hidden">
+                                <ul class="text-gray-700">
+                                    <li class="p-2 hover:bg-gray-100">Course 1</li>
+                                    <li class="p-2 hover:bg-gray-100">Course 2</li>
+                                    <li class="p-2 hover:bg-gray-100">Course 3</li>
+                                    <li class="p-2 hover:bg-gray-100">Course 1</li>
+                                    <li class="p-2 hover:bg-gray-100">Course 2</li>
+                                    <li class="p-2 hover:bg-gray-100">Course 3</li>
+                                    <li class="p-2 hover:bg-gray-100">Course 1</li>
+                                    <li class="p-2 hover:bg-gray-100">Course 2</li>
+                                    <li class="p-2 hover:bg-gray-100">Course 3</li>
+                                    <li class="p-2 hover:bg-gray-100">Course 1</li>
+                                    <li class="p-2 hover:bg-gray-100">Course 2</li>
+                                    <li class="p-2 hover:bg-gray-100">Course 3</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
+                    
+                    
 
                     <div class="search-fill">
                         <img class="h-4 w-4" src="./assets/svg/magnifying-glass.svg" alt="">
@@ -385,7 +418,8 @@
 
                                 </div>
                                 <h3>Mastering Interaction Design: From Principles to Practice</h3>
-                                <p>Explore our wide range of premium products, crafted to meet the highest standards.
+                                <p>Explore our wide range of premium products, crafted to meet the highest
+                                    standards.
                                     From stylish shoe......</p>
                                 <div class="flex flex-row space-x-2">
                                     <img class="profile-pict" src="./assets/img/girl1.png" alt="">
@@ -415,7 +449,8 @@
 
                                 </div>
                                 <h3>Mastering 3D Designer: From Beginner to Expert</h3>
-                                <p>Explore our wide range of premium products, crafted to meet the highest standards.
+                                <p>Explore our wide range of premium products, crafted to meet the highest
+                                    standards.
                                     From stylish shoe......</p>
                                 <div class="flex flex-row space-x-2">
                                     <img class="profile-pict" src="./assets/img/man_1.png" alt="">
@@ -445,7 +480,8 @@
 
                                 </div>
                                 <h3>Mastering UI/UX Designer: From Beginenr to Expert</h3>
-                                <p>Explore our wide range of premium products, crafted to meet the highest standards.
+                                <p>Explore our wide range of premium products, crafted to meet the highest
+                                    standards.
                                     From stylish shoe......</p>
                                 <div class="flex flex-row space-x-2">
                                     <img class="profile-pict" src="./assets/img/man_2.png" alt="">
@@ -475,7 +511,8 @@
 
                                 </div>
                                 <h3>Mastering 3D Designer: Build a Portfolio</h3>
-                                <p>Explore our wide range of premium products, crafted to meet the highest standards.
+                                <p>Explore our wide range of premium products, crafted to meet the highest
+                                    standards.
                                     From stylish shoe......</p>
                                 <div class="flex flex-row space-x-2">
                                     <img class="profile-pict" src="./assets/img/man_1.png" alt="">
@@ -505,7 +542,8 @@
 
                                 </div>
                                 <h3>Mastering Prototype: From Beginenr to Expert</h3>
-                                <p>Explore our wide range of premium products, crafted to meet the highest standards.
+                                <p>Explore our wide range of premium products, crafted to meet the highest
+                                    standards.
                                     From stylish shoe......</p>
                                 <div class="flex flex-row space-x-2">
                                     <img class="profile-pict" src="./assets/img/man_2.png" alt="">
@@ -535,7 +573,8 @@
 
                                 </div>
                                 <h3>Mastering Of Marketing: From Principles to Practice</h3>
-                                <p>Explore our wide range of premium products, crafted to meet the highest standards.
+                                <p>Explore our wide range of premium products, crafted to meet the highest
+                                    standards.
                                     From stylish shoe......</p>
                                 <div class="flex flex-row space-x-2">
                                     <img class="profile-pict" src="./assets/img/girl1.png" alt="">
@@ -577,7 +616,8 @@
             <div class="desktop:grid tablet:grid grid-cols-3 grid-rows-2 gap-6 mobile:flex">
 
                 <div class="card-testimonial bg-cardTestimonial">
-                    <div class=" flex flex-col desktop:justify-between tablet:justify-between mobile:space-y-4 desktop:w-full desktop:h-full tablet:w-full tablet:h-full mobile:w-full mobile:h-auto">
+                    <div
+                        class=" flex flex-col desktop:justify-between tablet:justify-between mobile:space-y-4 desktop:w-full desktop:h-full tablet:w-full tablet:h-full mobile:w-full mobile:h-auto">
                         <div class="flex flex-row space-x-1">
                             <img class="star" src="./assets/svg/Star.svg" alt="">
                             <img class="star" src="./assets/svg/Star.svg" alt="">
@@ -586,7 +626,9 @@
                             <img class="star" src="./assets/svg/Star.svg" alt="">
                         </div>
                         <p>
-                            "The courses at Macademy have been very helpful in developing my design skills. The mentors are very experienced and the course materials are very well structured. I highly recommend Macademy to anyone who wants to improve their design skills." </p>
+                            "The courses at Macademy have been very helpful in developing my design skills. The
+                            mentors are very experienced and the course materials are very well structured. I highly
+                            recommend Macademy to anyone who wants to improve their design skills." </p>
                         <div class="flex flex-row space-x-2">
                             <img class="profile-pict" src="./assets/img/man_3.png" alt="">
                             <div class="flex flex-col">
@@ -607,7 +649,9 @@
                             <img class="w-5 h-5" src="./assets/svg/Star.svg" alt="">
                         </div>
                         <p>
-                            Taking the Marketing course at Macademy has given me a lot of new insights. The interactive teaching method and support from the mentors really motivate me to keep learning. Now, I feel more confident in my work. </p>
+                            Taking the Marketing course at Macademy has given me a lot of new insights. The
+                            interactive teaching method and support from the mentors really motivate me to keep
+                            learning. Now, I feel more confident in my work. </p>
                         <div class="flex flex-row space-x-2">
                             <img class="profile-pict" src="./assets/img/man_4.png" alt="">
                             <div class="flex flex-col">
@@ -628,7 +672,9 @@
                             <img class="w-5 h-5" src="./assets/svg/Star.svg" alt="">
                         </div>
                         <p>
-                            Macademy provides an amazing learning experience. The 3D Design course I took was very in-depth and practical. I am very happy with the results I got and am now able to produce more professional 3D work.</p>
+                            Macademy provides an amazing learning experience. The 3D Design course I took was very
+                            in-depth and practical. I am very happy with the results I got and am now able to
+                            produce more professional 3D work.</p>
                         <div class="flex flex-row space-x-2">
                             <img class="profile-pict" src="./assets/img/man_5.png" alt="">
                             <div class="flex flex-col">
@@ -649,7 +695,10 @@
                             <img class="w-5 h-5" src="./assets/svg/Star.svg" alt="">
                         </div>
                         <p>
-                            I am very satisfied with the Product Management course at Macademy. The comprehensive course materials and real case studies really helped me understand the role and responsibilities of a Product Manager. I feel more prepared to face the challenges in my current job. </p>
+                            I am very satisfied with the Product Management course at Macademy. The comprehensive
+                            course materials and real case studies really helped me understand the role and
+                            responsibilities of a Product Manager. I feel more prepared to face the challenges in my
+                            current job. </p>
                         <div class="flex flex-row space-x-2">
                             <img class="profile-pict" src="./assets/img/man_6.png" alt="">
                             <div class="flex flex-col">
@@ -670,7 +719,10 @@
                             <img class="w-5 h-5" src="./assets/svg/Star.svg" alt="">
                         </div>
                         <p>
-                            "As a fashion blogger, I always look for brands that offer quality and style. MTshirt not only met my expectations, but also exceeded them. Every collection they launch always features thoughtful details and comfortable materials. I recommend them to all my followers!" </p>
+                            "As a fashion blogger, I always look for brands that offer quality and style. MTshirt
+                            not only met my expectations, but also exceeded them. Every collection they launch
+                            always features thoughtful details and comfortable materials. I recommend them to all my
+                            followers!" </p>
                         <div class="flex flex-row space-x-2">
                             <img class="profile-pict" src="./assets/img/man_7.png" alt="">
                             <div class="flex flex-col">
@@ -684,23 +736,25 @@
                 <div class="hidden desktop:card-testimonial tablet:card-testimonial ">
                     <div class=" flex flex-col justify-between w-full h-full">
                         <div class="flex flex-row space-x-1">
-                          <img class="w-5 h-5" src="./assets/svg/Star.svg" alt="">
-                          <img class="w-5 h-5" src="./assets/svg/Star.svg" alt="">
-                          <img class="w-5 h-5" src="./assets/svg/Star.svg" alt="">
-                          <img class="w-5 h-5" src="./assets/svg/Star.svg" alt="">
-                          <img class="w-5 h-5" src="./assets/svg/Star.svg" alt="">
+                            <img class="w-5 h-5" src="./assets/svg/Star.svg" alt="">
+                            <img class="w-5 h-5" src="./assets/svg/Star.svg" alt="">
+                            <img class="w-5 h-5" src="./assets/svg/Star.svg" alt="">
+                            <img class="w-5 h-5" src="./assets/svg/Star.svg" alt="">
+                            <img class="w-5 h-5" src="./assets/svg/Star.svg" alt="">
                         </div>
                         <p>
-                          Macademy has completely changed the way I view and approach design. The UI/UX Design course I took was very comprehensive and gave me the skills needed to succeed in this industry. Thank you Macademy!
+                            Macademy has completely changed the way I view and approach design. The UI/UX Design
+                            course I took was very comprehensive and gave me the skills needed to succeed in this
+                            industry. Thank you Macademy!
                         </p>
                         <div class="flex flex-row space-x-2">
-                          <img class="profile-pict" src="./assets/img/man_1.png" alt="">
-                          <div class="flex flex-col">
-                            <h4>Cameron Williamson</h4>
-                            <p>Freelancer Designer</p>
-                          </div>
+                            <img class="profile-pict" src="./assets/img/man_1.png" alt="">
+                            <div class="flex flex-col">
+                                <h4>Cameron Williamson</h4>
+                                <p>Freelancer Designer</p>
+                            </div>
                         </div>
-                      </div>
+                    </div>
                 </div>
 
             </div>
@@ -716,7 +770,7 @@
             <div class="flex flex-col desktop:space-y-10 tablet:space-y-10 mobile:space-y-8">
                 <div class="logo">
                     <img src="./assets/svg/macademy_logo.svg" alt="">
-                </div>                
+                </div>
                 <div class="flex flex-row space-x-2">
                     <button class="btn bg-baseColor border-0 text-blackThemeTheme ">
                         View All Source
@@ -745,7 +799,8 @@
                 </div>
 
             </div>
-            <div class="flex desktop:flex-row tablet:flex-row mobile:flex-col desktop:space-x-32 tablet:space-x-32 mobile:space-y-6">
+            <div
+                class="flex desktop:flex-row tablet:flex-row mobile:flex-col desktop:space-x-32 tablet:space-x-32 mobile:space-y-6">
                 <div class="flex-col">
                     <h4>Company</h4>
                     <div class="mt-6 space-y-3">
@@ -759,7 +814,7 @@
                 <div class="flex-col">
                     <h4>User</h4>
                     <div class="mt-6 space-y-3">
-                        
+
                         <p>Be a Mentor</p>
                         <p>Be a Student</p>
                     </div>
@@ -768,7 +823,7 @@
                 <div class="flex-col">
                     <h4>Support</h4>
                     <div class="mt-6 space-y-3">
-                        
+
                         <p>Help Center</p>
                         <p>FAQ</p>
                         <p>Forums</p>
@@ -779,7 +834,8 @@
 
         <div class="border-t-2 my-6"></div>
 
-        <div class="flex desktop:flex-row tablet:flex-row mobile:flex-col justify-between mobile:space-y-6 mobile:items-center">
+        <div
+            class="flex desktop:flex-row tablet:flex-row mobile:flex-col justify-between mobile:space-y-6 mobile:items-center">
             <h4 class="font-helvetica mobile:text-[16px]">© 2024 macademy. All rights reserved.</h4>
             <div class="flex flex-row space-x-6 ">
                 <h4 class="mobile:text-[16px]">Customer Services</h4>

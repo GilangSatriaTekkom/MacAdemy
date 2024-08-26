@@ -102,6 +102,10 @@ module.exports = {
    
     container: {
       center: true,
+      padding: {
+        tablet: "45px",
+        mobile: "20px",
+      },
     },
 
     shadows: {
