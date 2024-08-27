@@ -3098,6 +3098,10 @@ header {
   font-size: 14px;
 }
 
+.text-\[16px\] {
+  font-size: 16px;
+}
+
 .text-sm {
   font-size: 0.8rem;
 }
